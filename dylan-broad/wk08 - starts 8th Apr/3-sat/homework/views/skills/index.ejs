@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills list</title>
+    <link rel="stylesheet" href="/stylesheets/skills-style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Dylan's list of skills</h1>
+      <ul class="list-group">
+        <% skills.forEach(function(t) { %>
+        <div class="list-group-item">
+          <%= t.skills %> - <%= t.done ? 'Completed' : 'Uncompleted' %>
+          <p><a href="/">More info</a></p>
+        </div>
+        <% }); %>
+      </ul>
+      <p><a href="/">Return Home</a></p>
+    </div>
+  </body>
+</html>
