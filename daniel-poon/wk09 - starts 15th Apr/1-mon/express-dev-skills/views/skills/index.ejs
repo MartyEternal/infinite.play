@@ -6,16 +6,18 @@
     <title>Developer Skills</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
+
   <body>
     <h1>Dev Skills</h1>
-    <ul>
+    <div class = "flex-container">
       <% skills.forEach(function(s) { %>
-        <li>
+        <div class = "links">
           <a href="/skills/<%= s.id %>">
             <%= s.name %>
+            <img src="<%= s.imgUrl %>" alt="<%= s.name %>">
           </a>
-        </li>
+        </div>
         <%})%>
-    </ul>
+    </div>
   </body>
 </html>
