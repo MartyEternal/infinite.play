@@ -8,19 +8,36 @@
   </head>
   <body>
     <div class="container">
+      <h1><%= skills.name %></h1>
 
-<%- include('../partials/header') %>
-<h1><%= skills.name %></h1>
-    
-    <form action="/skills/update/<%= skills.id %>?_method=PUT" method="POST" class="edit-form" >
-      <label for="name">&nbsp;Name:</label><br>
-      <input type="text" id="name" name="name" value="<%= skills.name  %>"> <br>
-      <label for="name">&nbsp;Specialism:</label><br>
-      <input type="text" id="specialism" name="specialism" value="<%= skills.specialism  %>"> <br>
-      <label for="name">&nbsp;Location:</label><br>
-      <input type="text" id="location" name="location" value="<%= skills.location  %>"> <br>
-      <button type="submit">Update</button>
-    </form><br>
-    <a href="/skills">See all coders</a>
+      <form
+        action="/skills/update/<%= skills.id %>?_method=PUT"
+        method="POST"
+        class="edit-form"
+      >
+        <label for="name">&nbsp;Name:</label><br />
+        <input type="text" id="name" name="name" value="<%= skills.name  %>" />
+        <br />
+        <label for="name">&nbsp;Specialism:</label><br />
+        <input
+          type="text"
+          id="specialism"
+          name="specialism"
+          value="<%= skills.specialism  %>"
+        />
+        <br />
+        <label for="name">&nbsp;Location:</label><br />
+        <input
+          type="text"
+          id="location"
+          name="location"
+          value="<%= skills.location  %>"
+        />
+        <br />
+        <button type="submit">Update</button>
+      </form>
+      <br />
+      <a href="/skills">See all coders</a>
+    </div>
   </body>
 </html>
