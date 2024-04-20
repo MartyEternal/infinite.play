@@ -34,8 +34,10 @@ function edit(req, res) {
 }
 
 function updateById(req, res) {
+  const id = parseInt(req.params.id);
+  // console.log("UPDATEBYID: ", id);
   Skill.updateSkillById(req.params.id, req.body);
-  res.redirect("/skills");
+  res.redirect(`/skills/${id}`);
 }
 
 module.exports = {
