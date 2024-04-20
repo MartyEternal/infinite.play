@@ -25,6 +25,9 @@ function getOne(id) {
 
 function create(skill) {
   skill.id = Date.now() % 1000000;
+  if (skill.name == "" && skill.specialism == "" && skill.location == "") {
+    return;
+  }
   skills.push(skill);
 }
 

@@ -30,7 +30,6 @@ function newSkill(req, res) {
 function edit(req, res) {
   res.render("skills/edit", {
     skills: Skill.getOne(req.params.id),
-    title: "Edit Skill",
   });
 }
 

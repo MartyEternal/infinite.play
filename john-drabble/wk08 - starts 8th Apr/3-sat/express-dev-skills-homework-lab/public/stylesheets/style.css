@@ -48,11 +48,13 @@ body {
     color: white;
   }
 
-input, button {
+  input, button {
     margin: 5px;
     width: 250px;
+    cursor: pointer;
   }
 
   a {
-    text-decoration: none
+    text-decoration: none;
+    cursor: pointer;
   }
