@@ -1,26 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('../partials/header.ejs')%>
+<ul>
+  <% skills.forEach((skill) => { %>
+  <li>
+    <a href="<%= `/skills/${skill.id}` %>"><%= skill.name %></a>
+  </li>
+  <% }); %>
+</ul>
+<a class="add-skill" href="/skills/new">Add Skill</a>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <h1>My Skills</h1>
-
-  <ul>
-    <% categories.forEach((category) => { %>
-    <li>
-      <a href="<%= `/skills/${category}` %>"><%= category %></a>
-    </li>
-    <% }); %>
-  </ul>
-
-
-
-
-</body>
-
-</html>
+<%- include('../partials/footer.ejs')%>

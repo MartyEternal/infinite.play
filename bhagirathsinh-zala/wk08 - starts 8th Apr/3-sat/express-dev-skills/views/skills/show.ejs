@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('../partials/header') %>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skills</title>
-</head>
+<ul>
+  <li>Name: <%= skill.name %></li>
+  <li>Proficiency Level: <%= skill.level %></li>
 
-<body>
-  <h1><%= category.toUpperCase() %> Skills</h1>
+  <br />
 
-  <ul>
-    <% skills.forEach((skill) => {%>
-    <li><%= skill %></li>
-    <% });%>
-    <br />
-    <a href="/skills">go back</a>
-  </ul>
+  <form action="/skills/<%= skill.id %>?_method=DELETE" class="delete-form" method="POST">
+    <button type="submit">Delete</button>
+  </form>
 
+  <a class="edit-skill" href="/skills/<%= skill.id%>/edit">Edit</a>
+  <a href="/skills">Go back</a>
+</ul>
 
-</body>
-
-</html>
+<%- include('../partials/footer') %>

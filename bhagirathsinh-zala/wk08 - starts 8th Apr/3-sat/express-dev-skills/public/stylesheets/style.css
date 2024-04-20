@@ -1,8 +1,89 @@
+/* Note: style code yet to be refactored to implement DRY principle where possible */
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+html {
+  min-height: 100vh;
+}
+
 a {
-  color: #00B7FF;
+  color: #030c0f;
+}
+
+h1 {
+  color: #6007a0;
+}
+
+ul {
+  margin-bottom: 25px;
+}
+
+.add-skill {
+  border: 1px solid #f2f4f4;
+  background-color: #6007a0;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 32px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.delete-form {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.delete-form button {
+  border: 1px solid #a60b0b;
+  background-color: #e60a0a;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.delete-form button:hover {
+  background-color: #ff3737;
+}
+
+.edit-skill {
+  border: 1px solid #393737;
+  background-color: #4caf50;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 9px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-right: 20px;
+}
+
+.edit-skill:hover {
+  background-color: #3b923d;
+}
+
+li {
+  list-style: none;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+label,
+button {
+  display: block;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 15px;
+  width: 200px;
+  padding: 5px 10px;
 }
