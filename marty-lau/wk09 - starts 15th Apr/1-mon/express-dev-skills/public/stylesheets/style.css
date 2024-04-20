@@ -2,10 +2,14 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: bisque;
+  font-size: 15px;
 }
 
 a {
   color: #00B7FF;
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 .delete-form {
@@ -27,5 +31,10 @@ button {
 
 a:hover {
   text-decoration: none;
-  font-size: 20px;
+  color: transparent;
+  transition: 500ms ease;
+}
+
+p {
+  max-width: 400px;
 }
