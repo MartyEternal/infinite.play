@@ -8,10 +8,24 @@
 </head>
 
 <body>
-    <p>Skillset: <%= devSkill.abilities %>
-    </p>
-    <p>Category: <%= devSkill.category %>
-    </p>
+    <%- include('../partials/header') %>
+
+        <p>Skillset: <%= devSkill.skillset %>
+        </p>
+        <p>Category: <%= devSkill.category %>
+        </p>
+        <form action="/skills/<%= devSkill.skill %>/edit" class="edit-form" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+        <form action="/skills/<%= devSkill.skill %>?_method=DELETE" class="delete-form" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+
+
+        <br><br>
+
+        <a href="/skills">Back</a>
 </body>
+<%- include('../partials/footer') %>
 
 </html>

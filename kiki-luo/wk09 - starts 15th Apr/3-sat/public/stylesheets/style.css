@@ -1,8 +1,52 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  position: fixed;
 }
 
 a {
   color: #00B7FF;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+li > a {
+  color: #63a763;
+}
+
+#addLink {
+  color: #d280b9;
+}
+form {
+  margin-top: 10px;
+
+}
+.save-form button{
+  color: #63a763
+}
+.delete-form {
+
+  position: fixed;
+}
+	
+.delete-form button {
+  color: red;
+  display: inline-block;
+
+}
+	
+
+ul {
+  list-style-type: circle;
+}
+
+.edit-form {
+
+  
+  margin-right: 10px;
+}
+
+.edit-form button {
+  color: #63a763;
+  display: inline-block;
 }

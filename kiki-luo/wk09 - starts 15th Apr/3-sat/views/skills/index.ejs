@@ -2,22 +2,24 @@
 <html>
 
 <head>
-  <title>Developer skills</title>
+  <title></title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
-<body>
-  <h1>Developer skills</h1>
 
-  <% devSkills.forEach(function(s) { %>
-  
-        <a href='skills/<%= s.skill %>'>
-          <%= s.skill %>
-        </a>
-        <br>
-     
+  <%- include('../partials/header') %>
+  <h1>All Dev Skills</h1>
+  <ul>
+      <% devSkills.forEach(function(devSkill) { %>
+      <li>
+
+          <a href="/skills/<%= devSkill.skill %>"><%= devSkill.skill %></a> 
+      </li>
       <% }); %>
-   
-</body>
+  </ul>
+  
+  <a href="/skills/new" id="addLink">Add New Dev skill</a>
+  
+  <%- include('../partials/footer') %>
 
 </html>
