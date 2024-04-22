@@ -39,3 +39,7 @@ img{
   margin: 10px;
 }
 
+.delete-form button {
+  color: red;
+}
+

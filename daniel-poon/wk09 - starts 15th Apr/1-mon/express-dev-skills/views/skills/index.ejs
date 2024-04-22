@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Skills</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+<%- include('../partials/header') %>
 
-  <body>
-    <h1>Dev Skills</h1>
+  
+
     <div class = "flex-container">
       <% skills.forEach(function(s) { %>
         <div class = "links">
           <a href="/skills/<%= s.id %>">
-            <%= s.name %>
-            <img src="<%= s.imgUrl %>" alt="<%= s.name %>">
+            <%= s.skill %>
+            <img src="<%= s.imgUrl %>" alt="<%= s.skill %>">
           </a>
         </div>
         <%})%>
     </div>
+  </div class = "add"> <a href = "/skills/new">Add Skill</a></div>
+  
+
+<%- include('../partials/footer') %>
   </body>
 </html>
