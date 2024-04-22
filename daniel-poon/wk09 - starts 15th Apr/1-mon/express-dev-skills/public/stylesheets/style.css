@@ -9,15 +9,13 @@ a {
 }
 
 h1 {
-  color: red;
+  color: darkblue;
 }
 
 .links {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  
-  border-radius: 10px;
   margin-bottom: 10px;
   width: 90px;
   align-items: center;
