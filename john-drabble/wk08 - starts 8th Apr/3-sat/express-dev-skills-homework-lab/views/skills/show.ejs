@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Coder Skills</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1><%= skills.name %></h1>
+      <br />
+      <ul>
+        <li>Skills: <%= skills.specialism.toUpperCase() %></li>
+        <li>Location: <%= skills.location.toUpperCase() %></li>
+      </ul>
+      <br />
+      <a href="/skills/edit/<%= skills.id %>">Edit</a>
+      <br />
+      <a href="/skills">See all coders</a>
+    </div>
+  </body>
+</html>

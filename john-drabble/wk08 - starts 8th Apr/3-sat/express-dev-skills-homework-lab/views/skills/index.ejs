@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+  <body>
+    <div class="container">
+      <h1>All Coders Directory</h1><br>
+      <a href="/skills/new">+ Add Developer</a><br>
+      <ul>
+        <% skills.forEach(function(s) { %>
+        <li>
+          <a href="/skills/show/<%= s.id %>">
+            Click for details on <%= s.name%>
+          </a>&nbsp; 
+
+          <form action="/skills/<%= s.id %>?_method=DELETE"
+            class="delete-form" method="POST">
+            <button type="submit"> X </button>
+          </form>
+        
+        </li><br>
+
+        <% }); %>
+      </ul>
+    </div>
+  </body>
+</html>
