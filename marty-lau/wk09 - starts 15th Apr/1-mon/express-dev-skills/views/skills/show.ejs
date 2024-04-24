@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+    <h3>
+        <%= skill.skill %>
+    </h3>
+    <h3>Skill Level: <%= skill.skillLevel %><br />
+            I have <%= skill.yearsExperience %> years of experience in this field.
+    </h3>
+    <p>
+        <%= skill.blurb %>
+    </p>
+
+    <form action="/skills/<%= skill.id %>?_method=DELETE" class="delete-form" method="POST">
+        <button type="submit">DELETE</button>
+    </form>
+    <a href="/skills/<%= skill.id %>/edit">
+        <button type="submit">EDIT</button>
+    </a>
+
+    <%- include("../partials/footer") %>

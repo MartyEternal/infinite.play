@@ -1,0 +1,31 @@
+<%- include("../partials/header") %>
+
+    <h3>
+        <%= skill.skill %>
+    </h3>
+    <form action="/skills/<%= skill.id %>?_method=PUT" method="POST">
+        <label for="text">Skill:</label>
+        <input type="text" id="skill" name="skill" value="<%= skill.skill %>">
+        <br />
+
+        <lable for="text">Skill Level: <br />
+            <input type="radio" id="skillLevel" name="skillLevel" value="Beginner">
+            <label for="Beginner">Beginner</label><br />
+            <input type="radio" id="skillLevel" name="skillLevel" value="Intermediate">
+            <label for="Intermediate">Intermediate</label><br />
+            <input type="radio" id="skillLevel" name="skillLevel" value="Expert">
+            <label for="Expert">Expert</label><br />
+            <input type="radio" id="skillLevel" name="skillLevel" value="Master">
+            <label for="Master">Master</label><br />
+            <input type="radio" id="skillLevel" name="skillLevel" value="Guru">
+            <label for="Guru">Guru</label>
+        </lable><br />
+
+        
+            <label for="quantity">Years of Experience:</label>
+            <input type="number" id="yearsExperience" name="yearsExperience" min="0" max="50">
+
+        <br /><button type="submit">Update Skill</button>
+    </form>
+
+    <%- include("../partials/footer") %>
