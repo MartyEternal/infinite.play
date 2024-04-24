@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="/stylesheets/skills-style.css" />
+
+<h3>Update To-Do</h3>
+<form action="/skills/<%= skill.id %>?_method=PUT" method="POST">
+  <label for="skill">Skill:</label>
+  <input type="text" id="skill" name="skill" value="<%= skill.skill %>" />
+  <input type="checkbox" name="done" <%= skill.done ? "checked" : " " %>>
+  <button type="submit">Update Skills</button>
+</form>
+<%- include('../partials/footer') %>
