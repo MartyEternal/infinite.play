@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Developer skills</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>Developer skills</h1>
+
+  <% devSkills.forEach(function(s) { %>
+  
+        <a href='skills/<%= s.skill %>'>
+          <%= s.skill %>
+        </a>
+        <br>
+     
+      <% }); %>
+   
+</body>
+
+</html>
