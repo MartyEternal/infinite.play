@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+<h3>Enter your skill name, level and period of experience.</h3>
+<div class="user-input">
+<form action="/skills" method="POST" autocomplete="off">
+    <div class="skill-input"><label>
+        Skill Name: <input type="text" name="name">
+    </label></div>
+    <div class="skill-input"><label>
+        Skill Level: <input type="text" name="level">
+    </label></div>
+    <div class="skill-input"><label>
+        How long: <input type="text" name="experience">
+    </label></div>
+    <div class="skill-input">
+        <button type="submit" id="save-button">Save my skill</button>
+    </div>
+</form> 
+</div> 
+<%- include("../partials/footer") %>

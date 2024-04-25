@@ -1,0 +1,22 @@
+body {
+  padding: 50px;
+  font: 1.2rem "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+p {
+  font-size: 0.8rem;
+}
+.user-input {
+  display: flex;
+  justify-content: center;
+}
+.skill-input {
+  padding: 1.5rem;
+}
+#save-button {
+  background-color: chocolate;
+  height: 2rem;
+}
