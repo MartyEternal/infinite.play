@@ -2,6 +2,7 @@ const Flight = require("../models/flight");
 
 module.exports = {
     index,
+    show,
     new: newFlight,
     create,
 };
@@ -25,4 +26,11 @@ async function create(req, res) {
         console.log(err);
         res.render("flights/new", { errorMsg: err.message });
     };
+};
+
+async function show(req, res) {
+    const flight = await Flight.findById(req.params.id);
+    res.render("flights/show", {
+        title: "Flight Details", flight
+    });
 };
