@@ -19,7 +19,7 @@
         </div>
     </section><br />
     <h2>Add a Destination</h2>
-    <form action="/flights/show" method="POST">
+    <form action="/flights/<%= flight.id %>/destinations" method="POST">
         <label>Airport:
             <select name="airport">
                 <option value="AUS">AUS</option>

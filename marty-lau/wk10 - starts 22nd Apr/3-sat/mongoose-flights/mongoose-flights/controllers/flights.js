@@ -8,17 +8,28 @@ module.exports = {
 };
 
 async function index(req, res) {
+    const query = {};
+    const sort = { departs: 1 };
+    const cursor = Flight.find(query).sort(sort);
+    for await (const doc of cursor) {
+        console.dir(doc);
+    }
     res.render("flights/index", {
         flights: await Flight.find({}),
     });
 };
 
 function newFlight(req, res) {
-    res.render("flights/new", { errorMsg: "" });
-
+    const newFlight = new Flight();
+    const dt = newFlight.departs;
+    const departsDate = `${dt.getFullYear()}-${(dt.getMonth() + 1).toString().padStart(2, '0')}-${dt.getDate().toString().padStart(2, '0')}`;
+    res.render('flights/new', { departsDate, errorMsg: '' });
 };
 
 async function create(req, res) {
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+    };
     try {
         await Flight.create(req.body);
         res.redirect("/flights");
@@ -30,7 +41,7 @@ async function create(req, res) {
 
 async function show(req, res) {
     const flight = await Flight.findById(req.params.id);
-    res.render("flights/show", {
-        title: "Flight Details", flight
-    });
+    // Sort destinations by arrival date/time in ascending order
+    flight.destinations.sort((a, b) => a.arrival - b.arrival);
+    res.render("flights/show", { title: "Flight Details", flight });
 };
