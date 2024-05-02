@@ -1,0 +1,10 @@
+<%- include('../partials/header') %>
+
+    <form action="/skills/<%= devSkill.skill%>?_method=PUT" class='edit-form' method="POST" autocomplete="off">
+        <label>Skill name: </label><input type="text" name="skill" value="<%= devSkill.skill%>"><br><br>
+        <label>Skillset: </label><input type="text"  name="skillset" value="<%= devSkill.skillset%>"><br><br>
+        <label>Category: </label><input type="text"  name="category" value="<%= devSkill.category%>"><br><br>
+        <button type="submit">Update Dev Skill</button>
+    </form>
+
+    <%- include('../partials/footer') %>

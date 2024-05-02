@@ -12,11 +12,19 @@
       <ul class="list-group">
         <% skills.forEach(function(t) { %>
         <div class="list-group-item">
-          <%= t.skills %> - <%= t.done ? 'Completed' : 'Uncompleted' %>
-          <p><a href="/">More info</a></p>
+          <form
+            action="/skills/<%= t.id %>?_method=DELETE"
+            class="delete-form"
+            method="POST"
+          >
+            <button type="submit">X</button>
+          </form>
+          <a href="/skills/<%= t.id %>"><%= t.skill %></a> - <%= t.done ?
+          'Skillful' : 'Unskillful' %>
         </div>
         <% }); %>
       </ul>
+      <p><a href="/skills/new">Add new skill</a></p>
       <p><a href="/">Return Home</a></p>
     </div>
   </body>

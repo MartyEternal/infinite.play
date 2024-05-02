@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+
+<form action="/skills" method="POST" autocomplete="off">
+  <label for="skill">Skill Name</label>
+  <input type="text" name="name" placeholder="JavaScript, Python, SQL..." required />
+  <label for="proficiency">Proficiency Level</label>
+  <input type="text" name="level" placeholder="Beginner, Intermediate, Expert..." required />
+  <button class="add-skill" type="submit">Add Skill</button>
+</form>
+
+<%- include('../partials/footer') %>

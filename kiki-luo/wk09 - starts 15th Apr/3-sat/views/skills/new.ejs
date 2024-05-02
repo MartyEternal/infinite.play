@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<h1>Add New Dev skill</h1>
+<form action="/skills" method="POST" autocomplete="off" class="save-form">
+    <lable>Skill name: </lable><input type ='text' name="skill"><br><br>
+    <lable>Skillset: </lable><input type = 'text' name="skillset"><br><br>
+    <lable>Skill category: </lable><input type = 'text' name="category"><br><br>
+    
+    <button type="submit">Save Dev-skill</button>
+</form>
+
+<%- include('../partials/footer') %>

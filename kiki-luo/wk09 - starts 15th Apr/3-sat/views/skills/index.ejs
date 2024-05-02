@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+
+  <%- include('../partials/header') %>
+  <h1>All Dev Skills</h1>
+  <ul>
+      <% devSkills.forEach(function(devSkill) { %>
+      <li>
+
+          <a href="/skills/<%= devSkill.skill %>"><%= devSkill.skill %></a> 
+      </li>
+      <% }); %>
+  </ul>
+  
+  <a href="/skills/new" id="addLink">Add New Dev skill</a>
+  
+  <%- include('../partials/footer') %>
+
+</html>
