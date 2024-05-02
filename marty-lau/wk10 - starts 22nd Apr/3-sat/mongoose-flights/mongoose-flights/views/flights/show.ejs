@@ -36,37 +36,51 @@
     </form>
     </form>
 
-    <!-- New markup below -->
-
-    <% if (flight.destinations.length) { %>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date Modified</th>
-                    <th>Destination</th>
-                    <th>Arrival Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% flight.destinations.forEach(function(d) { %>
-                    <tr>
-                        <!-- .toLocaleDateString() provides a more friendly date format -->
-                        <td>
-                            <%= d.createdAt.toLocaleDateString() %>
-                        </td>
-                        <td>
-                            <%= d.airport %>
-                        </td>
-                        <td>
-                            <%= d.arrival %>
-                        </td>
-                    </tr>
-                    <% }); %>
-            </tbody>
-        </table>
+    <% if (flight.ticket && flight.tickets.length) { %>
+        <h2>Tickets</h2>
+        <ul>
+            <% flight.tickets.forEach(function(t) { %>
+                <li>Seat: <%= t.seat %> | Price: <%= t.price %>
+                </li>
+                <% }); %>
+        </ul>
         <% } else { %>
-            <h5>No Destinations Yet</h5>
-            <% } %>
+            <h5>No Tickets Yet</h5>
+            <% }; %>
+
+                <% if (flight.destinations.length) { %>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date Modified</th>
+                                <th>Destination</th>
+                                <th>Arrival Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% flight.destinations.forEach(function(d) { %>
+                                <tr>
+                                    <!-- .toLocaleDateString() provides a more friendly date format -->
+                                    <td>
+                                        <% if (d.createdAt) { %>
+                                            <%= d.createdAt.toLocaleDateString() %>
+                                                <% } else { %>
+                                                    N/A
+                                                    <% } %>
+                                    </td>
+                                    <td>
+                                        <%= d.airport %>
+                                    </td>
+                                    <td>
+                                        <%= d.arrival %>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                    <% } else { %>
+                        <h5>No Destinations Yet</h5>
+                        <% } %>
 
 
-                <%- include("../partials/footer") %>
+                            <%- include("../partials/footer") %>
