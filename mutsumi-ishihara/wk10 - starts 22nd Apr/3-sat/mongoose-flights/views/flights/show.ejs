@@ -1,0 +1,61 @@
+<%- include('../partials/header') %>
+<h2>Flight Details</h2>
+<section id="show-page">
+    <table>
+        <thead>
+            <th>Airline</th>
+            <th>Airport</th>
+            <th>Flight No</th>
+            <th>Departure</th>
+            <th>Destinations - Airport</th>
+            <th>Destinations - Arrival</th>
+        </thead>
+    <% if(flight.destinations.length) { %>
+            <tbody>
+              <% flight.destinations.forEach(function(d) { %>
+                <tr>
+                  <td><%= flight.airline %></td>
+                  <td><%= flight.airport %></td>
+                  <td><%= flight.flightNo %></td>
+                  <td><%= flight.departs %></td>
+                  <td><%= d.airport %></td>
+                  <td><%= d.arrival %></td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+    <% } else { %>
+    <h5>No destination added yet</h5>
+    <% } %>
+
+  </section>
+
+  <!-- AAU, when viewing the details page (show view) for a flight, 
+    I want to be able to add a destination for that flight, including
+     its arrival date/time & one of the established airport codes -->
+<h2>Add Destination</h2>
+<form method="POST" action="/flights/<%= flight.id %>">
+<label>Destination</label>
+    <select name="destinations">
+        <option value="Austin">Austin</option>
+        <option value="Dallas-Fort-Worth">Dallas Fort Worth</option>
+        <option value="Denver">Denver</option>
+        <option value="Los-Angels">Los Angeles</option>
+        <option value="San-Diego">San Diego</option>
+    </select><br>
+<label>Airport Code: </label>
+    <select name="airport">
+        <option value="AUS">AUS</option>
+        <option value="DFW">DFW</option>
+        <option value="DEN">DEN</option>
+        <option value="LAX">LAX</option>
+        <option value="SAN">SAN</option>
+    </select><br>
+<label>Arrival Schedule
+    <input type="datetime-local" name="arrival" >
+</label>
+
+<br>
+    <input type="submit" value="Add">
+</form>
+<%- include('../partials/footer') %>

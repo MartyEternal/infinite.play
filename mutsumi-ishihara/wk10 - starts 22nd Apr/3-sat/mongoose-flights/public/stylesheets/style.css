@@ -1,0 +1,29 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
+  /* background-image: linear-gradient(to right, #328dfc)  */
+}
+
+a {
+  color: #00B7FF;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+}
+
+table {
+  font-size: 20px;
+}
+
+table thead th {
+  padding: 5px;
+  border-bottom: 2px solid #424748;
+}
+
+table td {
+  padding: 10px;
+  text-align: center;
+}
