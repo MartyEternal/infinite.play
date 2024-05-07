@@ -1,4 +1,5 @@
 const Flight = require("../models/flight");
+const Ticket = require("../models/ticket");
 
 module.exports = {
     index,
@@ -40,8 +41,18 @@ async function create(req, res) {
 };
 
 async function show(req, res) {
-    const flight = await Flight.findById(req.params.id);
-    // Sort destinations by arrival date/time in ascending order
-    flight.destinations.sort((a, b) => a.arrival - b.arrival);
-    res.render("flights/show", { title: "Flight Details", flight });
+    try {
+        const flight = await Flight.findById(req.params.id);
+        const tickets = await Ticket.find({ flight: flight._id });
+        // Sort destinations by arrival date/time in ascending order
+        if (flight.destinations) {
+            flight.destinations.sort(function (a, b) {
+                return a.arrival - b.arrival;
+            });
+        }
+        res.render("flights/show", { title: "Flight Details", flight, tickets: tickets });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Internet Server Error");
+    };
 };

@@ -3,6 +3,7 @@ var router = express.Router();
 
 const ticketsCtrl = require("../controllers/tickets");
 
-router.post("/:id/tickets", ticketsCtrl.createTicket);
+router.get("/:id/tickets/new", ticketsCtrl.new);
+router.post("/:id/tickets", ticketsCtrl.create);
 
 module.exports = router;

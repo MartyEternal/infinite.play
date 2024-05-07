@@ -36,10 +36,10 @@
     </form>
     </form>
 
-    <% if (flight.ticket && flight.tickets.length) { %>
+    <% if (tickets && tickets.length) { %>
         <h2>Tickets</h2>
         <ul>
-            <% flight.tickets.forEach(function(t) { %>
+            <% tickets.forEach(function(t) { %>
                 <li>Seat: <%= t.seat %> | Price: <%= t.price %>
                 </li>
                 <% }); %>
@@ -47,6 +47,8 @@
         <% } else { %>
             <h5>No Tickets Yet</h5>
             <% }; %>
+                <a href="/flights/<%= flight._id %>/tickets/new" class="btn btn-primary"><button>New Ticket</button></a>
+
 
                 <% if (flight.destinations.length) { %>
                     <table>

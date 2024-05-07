@@ -1,11 +1,12 @@
 var Ticket = require("../models/ticket");
-var Flight = require("../models/flight");
+
 
 module.exports = {
-    createTicket,
+    create,
+    new: newTicket,
 };
 
-async function createTicket(req, res) {
+async function create(req, res) {
     try {
         const flightId = req.params.id;
         const { seat, price } = req.body;
@@ -17,6 +18,7 @@ async function createTicket(req, res) {
         });
 
         await ticket.save();
+        console.log("Ticket saved:", ticket);
 
         res.redirect(`/flights/${flightId}`);
     } catch (err) {
@@ -24,3 +26,8 @@ async function createTicket(req, res) {
         res.status(500).send("Internal Server Error");
     }
 };
+
+async function newTicket(req, res) {
+    const flightId = req.params.id;
+    res.render("tickets/new", { flightId });
+}
