@@ -1,0 +1,11 @@
+<%- include('../partials/header.ejs')%>
+<ul>
+  <% skills.forEach((skill) => { %>
+  <li>
+    <a href="<%= `/skills/${skill.id}` %>"><%= skill.name %></a>
+  </li>
+  <% }); %>
+</ul>
+<a class="add-skill" href="/skills/new">Add Skill</a>
+
+<%- include('../partials/footer.ejs')%>

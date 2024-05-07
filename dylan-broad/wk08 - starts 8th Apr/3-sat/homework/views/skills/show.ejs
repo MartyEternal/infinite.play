@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="/stylesheets/style.css" />
+
+<div class="container">
+  <h3><%= skill.skill %></h3>
+  <h3>Complete: <%= skill.done ? 'Yes' : 'No' %></h3>
+  <a href="/skills/<%= skill.id %>/update">Update Skill</a>
+</div>
+
+<%- include('../partials/footer') %>

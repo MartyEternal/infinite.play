@@ -1,0 +1,9 @@
+<%- include('../partials/header.ejs') %>
+<form action="/skills/<%= skill.id %>?_method=PUT" method="POST">
+  <label for="skill">Skill Name</label>
+  <input type="text" name="name" value="<%= skill.name %>" required />
+  <label for="proficiency">Proficiency Level</label>
+  <input type="text" name="level" value="<%= skill.level %>" required />
+  <button class="add-skill" type="submit">Update Skill</button>
+</form>
+<%- include('../partials/footer.ejs') %>
