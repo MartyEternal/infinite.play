@@ -1,0 +1,21 @@
+<%- include("../partials/header") %>
+<h3><%=title %></h3>
+<!-- <div> -->
+    <form action="/skills/edit/<%= skill.id %>?_method=PUT" autocomplete="off"
+        method="POST">
+    <div>Skill Name: <%- skill.name %></div>
+    <input type="text" name="name" value="<%= skill.name %>">
+
+    <div>Skill Level: <%- skill.level %></div>
+    <input type="text" name="level" value="<%= skill.level %>">
+
+    <div>Experience &#40; period &#41;: <%- skill.experience %></div>
+    <input type="text" name="experience" value="<%= skill.experience %>">
+    <div>
+    <button type="submit">Save update</button>
+    </div>
+</form>    
+    <!-- </div> -->
+
+
+<%- include("../partials/footer") %>
