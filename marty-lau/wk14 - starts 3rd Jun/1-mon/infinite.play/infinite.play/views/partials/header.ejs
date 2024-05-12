@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
+    <nav>
+        <a href="/games">ALL GAMES</a>
+        <% if (user) { %>
+            <a href="/games/new">ADD GAME</a>
+            <a href="/logout">LOG OUT</a>
+            <% } else { %>
+                <a href="/auth/google" class="login">LOG IN</a>
+                <% } %>
+    </nav>

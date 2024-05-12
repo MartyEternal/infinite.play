@@ -42,6 +42,15 @@ const gameSchema = new Schema({
         min: 0,
         required: true
     },
+    copiesSold: {
+        type: Number,
+        min: 0,
+        default: 0
+    },
+    wishlistUser: {
+        type: Boolean,
+        default: false
+    },
     reviews: [reviewSchema]
 }, {
     timestamps: true
