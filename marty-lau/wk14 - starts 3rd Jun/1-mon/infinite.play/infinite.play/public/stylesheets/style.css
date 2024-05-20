@@ -1,8 +1,184 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+} */
+
+/* General Styles */
+body {
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ccc;
+}
+
+header .logo {
+  margin: 10px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+header .account-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .account-info .dropdown button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+header .account-info .account-balance {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Main Content Styles */
+main {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.featured-game {
+  text-align: center;
+}
+
+.featured-game h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.game-genres button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.featured-games-list {
+  margin-top: 20px;
+}
+
+.featured-games-list h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Upload Game Page Styles */
+.upload-game {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.upload-form {
+  width: 60%;
+}
+
+.upload-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.terms {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.helpful-resources {
+  width: 35%;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.helpful-resources h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
 }

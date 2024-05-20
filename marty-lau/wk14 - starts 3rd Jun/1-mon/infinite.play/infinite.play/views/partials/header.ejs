@@ -4,12 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Infinite.Play</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
+    <header>
+        <% if (user) { %>
+            <div class="account-info">
+                <img src="<%= user.avatar %>" alt="<%= user.name %>">
+                <div class="dropdown">
+                    <button>
+                        <%= user.name %> ▼
+                    </button>
+                    <!-- dropdown menu here -->
+                </div>
+                <span class="account-balance">AUS $0.00</span>
+            </div>
+            <% } else { %>
+                <div class="logo">LOGO</div>
+                <% } %>
+                    <nav>
+                        <ul>
+                            <li><a href="#">Shop</a></li>
+                            <% if (user) { %>
+                                <li><a href="#">Realms</a></li>
+                                <li><a href="#">Top Up</a></li>
+                                <% } else { %>
+                                    <li><a href="/auth/google">Log In</a></li>
+                                    <li><a href="#">Learn More</a></li>
+                                    <% } %>
+                                        <li><a href="#">Support</a></li>
 
-    <nav>
+                        </ul>
+                    </nav>
+    </header>
+
+
+
+
+    <!-- <nav>
         <a href="/games">ALL GAMES</a>
         <% if (user) { %>
             <a href="/games/new">ADD GAME</a>
@@ -17,4 +51,4 @@
             <% } else { %>
                 <a href="/auth/google" class="login">LOG IN</a>
                 <% } %>
-    </nav>
+    </nav> -->

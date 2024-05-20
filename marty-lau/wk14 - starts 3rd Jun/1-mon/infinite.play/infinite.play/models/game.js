@@ -17,6 +17,10 @@ const reviewSchema = new Schema({
         ref: "User",
         required: true
     },
+    title: {
+        type: String,
+        required: true
+    },
     userName: String,
     userAvatar: String
 }, {
@@ -40,6 +44,10 @@ const gameSchema = new Schema({
     price: {
         type: Number,
         min: 0,
+        required: true,
+    },
+    description: {
+        type: String,
         required: true
     },
     copiesSold: {

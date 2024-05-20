@@ -1,5 +1,8 @@
 const Game = require("../models/game");
 
+// const genres = ["Action", "Adventure", "Casual", "Fighting", "Puzzle", "Role Playing", "Shooter", "Sports", "Strategy"];
+// const currency = ["USD", "EUR", "GBP", "AUS", "NZ", "JPY"];
+
 module.exports = {
     index,
     show,
@@ -31,7 +34,7 @@ async function index(req, res) {
 };
 
 function newGame(req, res) {
-    res.render("games/new", { errorMsg: null });
+    res.render("games/new", { errorMsg: "" });
 };
 
 async function create(req, res) {
@@ -39,11 +42,19 @@ async function create(req, res) {
     //     if (req.body[key] === "") delete req.body[key];
     // };
     try {
-        await Game.create(req.body);
-        res.redirect("/games");
+        // const { name, genre, price, description } = req.body;
+
+        // const Game = new Game({
+        //     name,
+        //     genre,
+        //     price,
+        //     description,
+        // });
+        const game = await Game.create(req.body);
+        res.redirect(`/games/${game._id}`);
     } catch (err) {
         console.log(err);
-        res.render("flights/new", { errorMsg: "Can't make game" })
+        res.render("games/new", { errorMsg: "Can't make game" })
     };
 };
 
