@@ -1,5 +1,14 @@
 <%- include("../partials/header") %>
 
-Nothing here just yet
+    <h1>All Games</h1>
+    <ul>
+        <% games.forEach(game=> { %>
+            <li>
+                <a href="/games/<%= game._id %>">
+                    <%= game.title %>
+                </a> - $<%= game.price %>
+            </li>
+            <% }) %>
+    </ul>
 
-<%- include("../partials/footer") %>
+    <%- include("../partials/footer") %>

@@ -19,21 +19,25 @@ async function create(req, res) {
 };
 
 async function deleteGameFromWishlist(req, res) {
-    // try {
-    //     const wishlist = await Wishlist.findOneAndUpdate(
-    //         { user: req.user._id },
-    //         { $pull: { games: req.body.gameId } },
-    //         { new: true }
-    //     );
-    //     res.redirect("/wishlist");
-    // } catch (err) {
-    //     console.error(err);
-    //     res.status(500).send("Try that again");
-    // };
+    try {
+        const wishlist = await Wishlist.findOneAndUpdate(
+            { user: req.user._id },
+            { $pull: { games: req.body.gameId } },
+            { new: true }
+        );
+        res.redirect("/wishlists");
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Try that again");
+    };
 
-    const wishlist = await Wishlist.findOneAndUpdate(
-        { user: req.user._id },
-        { $pull: { games: req.body.gameId } },
-        { new: true }
-    );
+    // const wishlist = await Wishlist.findOneAndUpdate(
+    //     { user: req.user._id },
+    //     { $pull: { games: req.body.gameId } },
+    //     { new: true }
+    // );
+};
+
+async function edit(req, res) {
+    // code body here
 };

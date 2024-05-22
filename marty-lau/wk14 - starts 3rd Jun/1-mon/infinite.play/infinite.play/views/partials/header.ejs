@@ -9,46 +9,118 @@
 </head>
 
 <body>
-    <header>
-        <% if (user) { %>
-            <div class="account-info">
-                <img src="<%= user.avatar %>" alt="<%= user.name %>">
-                <div class="dropdown">
-                    <button>
-                        <%= user.name %> ▼
-                    </button>
-                    <!-- dropdown menu here -->
-                </div>
-                <span class="account-balance">AUS $0.00</span>
+    <div role="banner" id="global-header">
+        <div class="content">
+            <div class="logo-or-avatar">
+                <% if (user) { %>
+                    <div class="user-avatar">
+                        <img src="<%= user.avatar %>" id="useravatar" alt="<%= user.name %>">
+                        <div class="user-details">
+                            <ul>
+                                <li>
+                                    <%= user.name %> ▼
+                                </li>
+                                <li>AUS $0.00</li>
+                            </ul>
+
+                            <% } else { %>
+                                <div class="logo">
+                                    <span id="logo-default">
+                                        <a href="/games">
+                                            <img src="/path/to/logo.png" width="200" height="50" alt="Store Logo">
+                                        </a>
+                                    </span>
+                                </div>
+                                <% } %>
+
+                        </div>
+                    </div>
             </div>
-            <% } else { %>
-                <div class="logo">LOGO</div>
-                <% } %>
-                    <nav>
-                        <ul>
-                            <li><a href="#">Shop</a></li>
-                            <% if (user) { %>
-                                <li><a href="#">Realms</a></li>
-                                <li><a href="#">Top Up</a></li>
-                                <% } else { %>
-                                    <li><a href="/auth/google">Log In</a></li>
-                                    <li><a href="#">Learn More</a></li>
-                                    <% } %>
-                                        <li><a href="#">Support</a></li>
+            <div role="navigation" class="header-nav-container">
+                <ul>
+                    <li class="flex">
+                        <a href="/games">
+                            SHOP
+                        </a>
+                    </li>
+                    <% if (user) { %>
+                        <li class="flex">
+                            <a href="#">
+                                REALMS
+                            </a>
+                        </li>
+                        <li class="flex">
+                            <a href="#">
+                                TOP UP
+                            </a>
+                        </li>
+                        <% } else { %>
+                            <li class="flex">
+                                <a href="/auth/google">
+                                    LOG IN
+                                </a>
+                            </li>
+                            <li class="flex">
+                                <a href="#">
+                                    TOP UP
+                                </a>
+                            </li>
+                            <% } %>
+                                <li class="flex">
+                                    <a href="#">
+                                        SUPPORT
+                                    </a>
+                                </li>
+                </ul>
 
-                        </ul>
-                    </nav>
-    </header>
+            </div>
+        </div>
+    </div>
 
+    <main>
 
+        <% /* %>
 
+            <header class="main-header">
 
-    <!-- <nav>
-        <a href="/games">ALL GAMES</a>
-        <% if (user) { %>
-            <a href="/games/new">ADD GAME</a>
-            <a href="/logout">LOG OUT</a>
-            <% } else { %>
-                <a href="/auth/google" class="login">LOG IN</a>
-                <% } %>
-    </nav> -->
+                <% if (user) { %>
+                    <div class="user-avatar">
+                        <img src="<%= user.avatar %>" id="useravatar" alt="<%= user.name %>">
+                        <div class="user-details">
+                            <!-- dropdown menu here -->
+                            <!-- dropdown mnenu needs links to:
+                    account details, log out-->
+                            <a href="#home" class="active">
+                                <%= user.name %> ▼
+                            </a>
+                            <!-- Navigation links -->
+                            <div id="myLinks">
+                                <a href="/logout">Log Out</a>
+                            </div>
+                            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </div>
+                        <span class="account-balance">AUS $0.00</span>
+                    </div>
+                    <% } else { %>
+                        <div class="logo">LOGO</div>
+                        <% } %>
+                            <nav>
+                                <ul>
+                                    <li><a href="/games">Shop</a></li>
+                                    <% if (user) { %>
+                                        <li><a href="#">Realms</a></li>
+                                        <li><a href="#">Top Up</a></li>
+                                        <% } else { %>
+                                            <li><a href="/auth/google">Log In</a></li>
+                                            <li><a href="#">Learn More</a></li>
+                                            <% } %>
+                                                <li><a href="#">Support</a></li>
+
+                                </ul>
+                            </nav>
+            </header>
+
+            <% */ %>

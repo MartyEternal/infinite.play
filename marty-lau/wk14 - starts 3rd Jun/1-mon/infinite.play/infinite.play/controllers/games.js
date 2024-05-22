@@ -38,18 +38,7 @@ function newGame(req, res) {
 };
 
 async function create(req, res) {
-    // for (let key in req.body) {
-    //     if (req.body[key] === "") delete req.body[key];
-    // };
     try {
-        // const { name, genre, price, description } = req.body;
-
-        // const Game = new Game({
-        //     name,
-        //     genre,
-        //     price,
-        //     description,
-        // });
         const game = await Game.create(req.body);
         res.redirect(`/games/${game._id}`);
     } catch (err) {
@@ -68,13 +57,38 @@ async function show(req, res) {
 };
 
 async function edit(req, res) {
-
+    try {
+        // console.log(`Editing game with ID: ${req.params.id}`);
+        const game = await Game.findById(req.params.id);
+        if (!game) {
+            return res.status(404).send("Game not found");
+        }
+        res.render("games/edit", { game });
+    } catch (err) {
+        res.status(500).send("Can't edit game");
+    }
 };
 
-function update(req, res) {
-
+async function update(req, res) {
+    try {
+        const game = await Game.findByIdAndUpdate(req.params.id, req.body);
+        if (!game) {
+            return res.status(404).send("Game not found");
+        }
+        res.redirect(`/games/${req.params.id}`);
+    } catch (err) {
+        res.status(500).send("Can't update game");
+    }
 };
 
-function deleteGame(req, res) {
-
+async function deleteGame(req, res) {
+    try {
+        const game = await Game.findByIdAndDelete(req.params.id);
+        if (!game) {
+            return res.status(404).send("Game not found");
+        }
+        res.redirect("/games");
+    } catch (err) {
+        res.status(500).send("Can't delete game");
+    }
 };

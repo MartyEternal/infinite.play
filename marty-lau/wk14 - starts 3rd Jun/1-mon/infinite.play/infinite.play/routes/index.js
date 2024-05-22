@@ -23,6 +23,7 @@ router.get('/oauth2callback', passport.authenticate(
 ));
 
 router.get('/logout', function (req, res) {
+  console.log("whatever")
   req.logout(function () {
     res.redirect('/games');
   });
