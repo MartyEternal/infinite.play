@@ -9,17 +9,26 @@
 </head>
 
 <body>
-    <div role="banner" id="global-header">
+    <div class="global-header">
         <div class="content">
             <div class="logo-or-avatar">
                 <% if (user) { %>
                     <div class="user-avatar">
-                        <img src="<%= user.avatar %>" id="useravatar" alt="<%= user.name %>">
+                        <a href="#">
+                            <img src="<%= user.avatar %>" id="useravatar" height="75px" alt="<%= user.name %>">
+                        </a>
                         <div class="user-details">
                             <ul>
-                                <li>
+                                <li class="dropdown">
                                     <%= user.name %> ▼
+                                        <div class="dropdown-content">
+                                            <ul>
+                                                <li><a href="#">Account Details</a></li>
+                                                <li><a href="/logout">Log Out</a></li>
+                                            </ul>
+                                        </div>
                                 </li>
+
                                 <li>AUS $0.00</li>
                             </ul>
 
@@ -27,7 +36,8 @@
                                 <div class="logo">
                                     <span id="logo-default">
                                         <a href="/games">
-                                            <img src="/path/to/logo.png" width="200" height="50" alt="Store Logo">
+                                            <img src="/images/store-basics/infplay-logo.png" width="" height="75px"
+                                                alt="Store Logo">
                                         </a>
                                     </span>
                                 </div>
@@ -35,48 +45,49 @@
 
                         </div>
                     </div>
-            </div>
-            <div role="navigation" class="header-nav-container">
-                <ul>
-                    <li class="flex">
-                        <a href="/games">
-                            SHOP
-                        </a>
-                    </li>
-                    <% if (user) { %>
-                        <li class="flex">
-                            <a href="#">
-                                REALMS
-                            </a>
-                        </li>
-                        <li class="flex">
-                            <a href="#">
-                                TOP UP
-                            </a>
-                        </li>
-                        <% } else { %>
+
+                    <div class="header-nav-container">
+                        <ul>
                             <li class="flex">
-                                <a href="/auth/google">
-                                    LOG IN
+                                <a href="/games">
+                                    SHOP
                                 </a>
                             </li>
-                            <li class="flex">
-                                <a href="#">
-                                    TOP UP
-                                </a>
-                            </li>
-                            <% } %>
+                            <% if (user) { %>
                                 <li class="flex">
                                     <a href="#">
-                                        SUPPORT
+                                        REALMS
                                     </a>
                                 </li>
-                </ul>
+                                <li class="flex">
+                                    <a href="#">
+                                        TOP UP
+                                    </a>
+                                </li>
+                                <% } else { %>
+                                    <li class="flex">
+                                        <a href="/auth/google">
+                                            LOG IN
+                                        </a>
+                                    </li>
+                                    <li class="flex">
+                                        <a href="#">
+                                            TOP UP
+                                        </a>
+                                    </li>
+                                    <% } %>
+                                        <li class="flex">
+                                            <a href="#">
+                                                SUPPORT
+                                            </a>
+                                        </li>
+                        </ul>
 
+                    </div>
             </div>
         </div>
     </div>
-
+    <hr>
     <main>
 
         <% /* %>
