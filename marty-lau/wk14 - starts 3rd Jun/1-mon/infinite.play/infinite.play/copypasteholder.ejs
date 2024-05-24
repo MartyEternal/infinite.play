@@ -1,0 +1,26 @@
+<div class="carousel">
+    <button class="carousel__button carousel__button--left is-hidden">
+        <img src="/images/store-basics/arrow-left.png" alt="">
+    </button>
+    <div class="carousel__track-container">
+        <ul class="carousel__track">
+            <li class="carousel__slide current-slide"><img class="carousel__image"
+                    src="images/game-previews/borderlands-3-001.jpg" alt=""></li>
+            <li class="carousel__slide"><img class="carousel__image" src="images/game-previews/borderlands-3-002.jpg"
+                    alt=""></li>
+            <li class="carousel__slide"><img class="carousel__image" src="images/game-previews/borderlands-3-003.jpg"
+                    alt=""></li>
+        </ul>
+    </div>
+    <button class="carousel__button carousel__button--right"><img src="/images/store-basics/arrow-right.png"
+            alt=""></button>
+
+    <div class="carousel__nav">
+        <% games.forEach(function(game, index) { %>
+            <button class="carousel__indicator <%= index === 0 ? 'current-slide' : '' %>"></button>
+            <% }); %>
+    </div>
+</div>
+
+<script src="/javascripts/carousel.js"></script>
+
