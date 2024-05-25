@@ -4,6 +4,7 @@ General Assembly Project - Unit 2
 Due: 25/05/2024
 
 ## Getting Started
+https://infinite-play.onrender.com/games
 
 ## What is Infinite.Play?
 
