@@ -1,0 +1,28 @@
+<%- include("../partials/header") %>
+
+    <h1>User Profile</h1>
+    <p><strong>Username:</strong>
+        <%= user.username %>
+    </p>
+    <p><strong>Name:</strong>
+        <%= user.name %>
+    </p>
+    <p><strong>Email:</strong>
+        <%= user.email %>
+    </p>
+    <p><strong>Balance:</strong> $<%= user.balance.toFixed(2) %>
+    </p>
+    <p><strong>Wishlist:</strong></p>
+    <ul>
+        <% if (user.wishlist && user.wishlist.games.length> 0) { %>
+            <% user.wishlist.games.forEach(game=> { %>
+                <li>
+                    <%= game.title %>
+                </li>
+                <% }) %>
+                    <% } else { %>
+                        <li>No games in wishlist.</li>
+                        <% } %>
+    </ul>
+
+    <%- include("../partials/footer") %>

@@ -1,10 +1,21 @@
 <%- include("../partials/header") %>
 
-    <main class="upload-game">
+    <div class="upload-game">
         <section class="upload-form">
-            <h2>Uploading Your Game</h2>
-            <div class="terms">
-                <p>Reminder of terms or things that user has to agree to upload (rules)</p>
+            <div class="rules">
+                <h2>Uploading Your Game</h2>
+                <ul class="rules-list" id="rules-content">
+                    <li>Original Content: Ensure that the game is your original creation and does not infringe on any intellectual property rights.</li>
+                    <li>Complete Information: Provide complete and accurate information about your game, including its name, genre, price, and description.</li>
+                    <li>Appropriate Content: The game must not contain any offensive, discriminatory, or illegal content.</li>
+                    <li>File Formats: Upload game files in accepted formats only (e.g., .zip, .rar, .exe, .apk).</li>
+                    <li>File Size: Ensure that the total size of uploaded files does not exceed 1GB.</li>
+                    <li>No Malware: Ensure that the game files are free of viruses, malware, or any other malicious code.</li>
+                    <li>Game Testing: Thoroughly test your game to ensure it is functional and free of major bugs.</li>
+                    <li>Age Rating: Specify an appropriate age rating for your game if applicable.</li>
+                    <li>Updates and Support: Be prepared to provide updates and support for your game after it has been published.</li>
+                    <li>Compliance: Follow all platform guidelines and comply with all applicable laws and regulations.</li>
+                </ul>
             </div>
             <form action="/games" method="POST">
                 <div class="form-group">
@@ -47,15 +58,15 @@
                 </div>
                 <div class="form-group">
                     <label for="upload">Upload Files:</label>
-                    <input type="text" id="image" name="image" value="/images/store-basics/infplay-preview-default.png" required>
+                    <input type="text" id="image" name="image" value="" placeholder="">
                     <!-- upload files won't work for this project, just putting it there -->
-                    <input type="file" id="upload" name="upload" placeholder="Upload files">
+                    <input type="file" class="upload-btn" id="upload" name="upload" placeholder="Upload files">
                 </div>
                 <button class="new-submit" type="submit">Submit</button>
             </form>
         </section>
-        <aside class="helpful-resources">
-            <h3>Helpful Resources for Users Adding New Games to the Website</h3>
+        <div class="helpful-resources">
+            <h3>Helpful Resources</h3>
             <!-- helpful resources content here -->
             <ul>
                 <li><a href="#">Introduction to Game Uploading</a></li>
@@ -64,7 +75,8 @@
                 <li><a href="#">Guidelines to In-Game Marketing and Microtransactions</a></li>
                 <li><a href="#">Developer's Realm</a></li>
             </ul>
-        </aside>
-    </main>
+        </div>
+    </div>
 
+    <script src="/javascripts/new.js"></script>
     <%- include("../partials/footer") %>

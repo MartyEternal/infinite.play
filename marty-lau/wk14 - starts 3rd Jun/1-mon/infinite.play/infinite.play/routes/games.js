@@ -7,6 +7,8 @@ router.get("/", gamesCtrl.index);
 router.get("/new", gamesCtrl.new);
 router.get("/:id", gamesCtrl.show);
 
+router.get("/search", gamesCtrl.searchGames);
+
 router.get("/:id/edit", gamesCtrl.edit);
 router.put("/:id", gamesCtrl.update);
 

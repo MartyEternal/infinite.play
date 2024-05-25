@@ -3,17 +3,31 @@
     <div class="search-level">
         <div class="marquee-bar">
             <!-- marquee bar code -->
+            <marquee id="reviews-marquee" behaviour="scroll" direction="left">Testing Testing Testing Testing Testing Testing Testing Testing </marquee>
         </div>
         <div class="search-bar">
             <!-- search bar code -->
+            <input type="text" id="search-bar" placeholder="Search games...">
+            <button id="search-button" onclick="searchGames()">GO</button>
         </div>
     </div>
 
     <div class="index-feature-preview">
         <div id="feature-main" class="carousel-container">
-            <% games.forEach(game=> { %>
-                <a href="/games/<%= game._id %>"><img src="/images/game-previews/<%= game.title %>/header.jpg"></a>
-                <% }) %>
+            <div id="feature-marquee" class="marquee-content">
+                <% games.forEach(game=> { %>
+                    <a href="/games/<%= game._id %>">
+                        <img src="/images/game-previews/<%= game.title %>/header.jpg">
+                    </a>
+                    <% }) %>
+            </div>
+            <div id="feature-marquee-clone" class="marquee-content">
+                <% games.forEach(game=> { %>
+                    <a href="/games/<%= game._id %>">
+                        <img src="/images/game-previews/<%= game.title %>/header.jpg">
+                    </a>
+                    <% }) %>
+            </div>
         </div>
     </div>
 
@@ -26,5 +40,7 @@
             <li class="flex"><a href="#">Shooter</a></li>
         </ul>
     </div>
+
+    <script src="/javascripts/index.js"></script>
 
     <%- include("../partials/footer") %>

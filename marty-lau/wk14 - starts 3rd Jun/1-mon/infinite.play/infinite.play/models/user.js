@@ -17,6 +17,10 @@ const userSchema = new Schema({
     type: String,
     default: "default-avatar.png"
   },
+  wishlist: {
+    type: Schema.Types.ObjectId,
+    ref: "Wishlist",
+  },
   balance: {
     type: Number,
     default: 0

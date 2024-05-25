@@ -59,6 +59,9 @@ const gameSchema = new Schema({
         type: Boolean,
         default: false
     },
+    image: {
+        type: String,
+    },
     reviews: [reviewSchema]
 }, {
     timestamps: true

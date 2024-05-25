@@ -4,6 +4,7 @@ module.exports = {
     create,
     delete: deleteReview,
     edit,
+    loadRecentReviews,
 };
 
 async function create(req, res) {
@@ -48,3 +49,7 @@ async function edit(req, res) {
         res.status(500).send("Can't edit review");
     }
 };
+
+async function loadRecentReviews(req, res) {
+    // code body here
+}

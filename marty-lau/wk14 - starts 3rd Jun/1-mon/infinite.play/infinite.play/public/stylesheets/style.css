@@ -1,17 +1,16 @@
 /* General Styles */
-
 a {
   text-decoration: none;
   color: #ffffff;
 }
 
-.a:focus {
+a:focus {
   outline: 0px none;
 }
 
 a:hover {
   text-decoration: none;
-  color: #f4c266
+  color: #f4c266;
 }
 
 html {
@@ -29,8 +28,43 @@ body {
   align-items: center;
 }
 
-/* header stuff */
+.flex {
+  display: flex;
+  flex-direction: row;
+}
 
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+hr {
+  border-top: 3px solid #ffffff;
+  width: 700px;
+  max-width: 700px;
+  margin: 0 27% 0 27%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1d2355;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Header Styles (header.ejs) */
 .global-header {
   height: 75px;
   width: 75%;
@@ -94,48 +128,12 @@ body {
   transition: background-color 0.3s, border-color 0.3s;
 }
 
-.flex {
-  display: flex;
-  flex-direction: row;
-}
-
-.content {
-  display: flex;
-  flex-direction: row;
-}
-
-hr {
-  border-top: 3px solid #ffffff;
-  width: 700px;
-  max-width: 700px;
-  margin: 0 27% 0 27%;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #1d2355;
-  min-width: 100px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px;
-  z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* index stuff */
-
+/* Index Page Styles (index.ejs) */
 .index-feature-preview {
   margin: 15px auto;
   display: flex;
   flex-direction: row;
+  max-width: 75%;
 }
 
 .genre-section {
@@ -152,13 +150,13 @@ hr {
   display: flex;
   list-style: none;
   margin: 0;
-  padding: 0;  
+  padding: 0;
 }
 
 .genre-section li {
   border: 3px solid #ffffff;
   margin: 0 20px;
-  padding: 5px 40px;
+  padding: 5px 32px;
   white-space: nowrap;
   display: flex;
   justify-content: center;
@@ -166,12 +164,83 @@ hr {
 }
 
 .search-level {
+  position: relative;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
-/* carousel css stuff */
-/* sadly, the carousel stuff didn't work out for me... I'll leave it for now */
+.marquee-bar {
+  position: relative;
+  margin: 10px auto;
+  background-color: #1d2355;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  left: 15%;
+  right: 15%;
+}
+
+.marquee-content {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+.marquee-content a {
+  margin-right: 10px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: 20px auto;
+  justify-content: center;
+  right: 15%;
+}
+
+#search-bar {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border: 1px solid #c6d4df;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+#search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1d2355;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Carousel Styles (show.ejs) */
+.carousel-container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  min-width: 1fr;
+  max-width: 1380px;
+}
+
+.carousel-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
 .carousel {
   position: relative;
   height: 600px;
@@ -215,19 +284,16 @@ hr {
   background: transparent;
   border: 0;
   cursor: pointer;
-}
-
-.carousel__button img {
-  width: 30px;
-
+  height: 400px;
+  width: 50px;
 }
 
 .carousel__button--left {
-  left: -40px;
+  left: 0px;
 }
 
 .carousel__button--right {
-  right: -40px;
+  right: 0px;
 }
 
 .carousel__nav {
@@ -254,48 +320,206 @@ hr {
   display: none;
 }
 
-/* media stuff down here */
+/* Game Details and Review Section (show.ejs) */
+.game-details {
+  margin-top: 20px;
+}
 
-@media (max-width: 900px) {
-  hr {
-    opacity: 0;
-    transition: opacity 0.3s;
+.preview {
+  height: 300px;
+  background-color: #444;
+  margin-bottom: 20px;
+}
+
+.horizontal-list {
+  height: 100px;
+  background-color: #555;
+  margin-bottom: 20px;
+}
+
+.elaborated-details,
+.details,
+.sidebar {
+  background-color: #666;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.review-section {
+  margin-top: 20px;
+}
+
+.review-game-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.review-game-btn:hover {
+  background-color: #555;
+}
+
+.reviews {
+  margin-top: 20px;
+}
+
+/* Review Modal (show.ejs) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background: linear-gradient(to bottom, rgb(56, 57, 121) 0%, rgba(255, 255, 255, 0) 80%);
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* New and Edit Form Styles (new.ejs and edit.ejs) */
+.upload-game {
+  display: flex;
+  flex-direction: row;
+}
+
+.upload-form {
+  min-width: 60%;
+  margin: 15px 15px;
+}
+
+.rules {
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 80px;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.upload-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group .dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.form-group .dropdown select {
+  margin-left: 10px;
+}
+
+.form-group .upload-btn,
+.form-group .new-submit {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.form-group .upload-btn:hover,
+.form-group .new-submit:hover {
+  background-color: #555;
+}
+
+/* Sidebar (new.ejs and edit.ejs) */
+.helpful-resources {
+  background: linear-gradient(to bottom, rgb(56, 57, 121) 0%, rgba(255, 255, 255, 0) 80%);
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.helpful-resources h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.helpful-resources ul {
+  font-size: 16px;
+  line-height: 1.5;
+  list-style: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
   }
 
-  .logo-or-avatar {
-    display: flex;
-    align-items: center;
-    max-height: 75px;
-  }
-
-  .user-avatar {
-    max-height: 50px;
-    display: flex;
-    flex-direction: row;
-  }
-
-  .user-details {
-    display: flex;
-    align-items: center;
-    justify-content: left;
+  .header nav ul {
     flex-direction: column;
-    white-space: nowrap;
-    max-width: 150px;
-    margin: 0;
-    padding: 0;
+    align-items: center;
   }
 
-  .header-nav-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    font-size: 30px;
-    border: 3px solid #ffffff;
-    max-width: 700px;
-    min-width: 700px;
-    margin: 0 150px 0 10%;
-    white-space: nowrap;
+  .header nav ul li {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .form-container,
+  .sidebar {
+    width: 100%;
   }
 }
 

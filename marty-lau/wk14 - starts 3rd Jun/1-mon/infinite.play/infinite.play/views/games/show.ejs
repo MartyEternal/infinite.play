@@ -1,61 +1,112 @@
 <%- include("../partials/header") %>
 
-<div class="game-preview">
-    <h2><%= game.title %></h2>
-    <div class="preview-of-game">
-        <p>PREVIEW OF GAME</p>
-    </div>
-    <div class="horizontal-list-preview">
-        <p>HORIZONTAL LIST OF PREVIEW ITEMS</p>
-    </div>
-</div>
+    <div class="container">
+        <!-- Game details section here -->
+        <div class="game-details">
+            <h1>
+                <%= game.title %>
+            </h1>
+            <div class="preview">
+                <div class="carousel">
+                    <button class="carousel__button carousel__button--left is-hidden">⬅️</button>
+                    <div class="carousel__track-container">
+                        <ul class="carousel__track">
+                            <li class="carousel__slide current-slide"><img class="carousel__image"
+                                    src="/images/game-previews/<%= game.title %>/0.jpg" alt=""></li>
+                            <li class="carousel__slide current-slide"><img class="carousel__image"
+                                    src="/images/game-previews/<%= game.title %>/1.jpg" alt=""></li>
+                            <li class="carousel__slide current-slide"><img class="carousel__image"
+                                    src="/images/game-previews/<%= game.title %>/2.jpg" alt=""></li>
+                            <li class="carousel__slide current-slide"><img class="carousel__image"
+                                    src="/images/game-previews/<%= game.title %>/3.jpg" alt=""></li>
+                        </ul>
+                    </div>
+                    <button class="carousel__button carousel__button--right">➡️</button>
 
-<div class="game-info">
-    <div class="elaborated-details">
-        <p>ELABORATED DETAILS OF GAME SPACE FOR MERCHANTS TO ADD MORE INFORMATION TO SHOPPERS</p>
-    </div>
-    <div class="details-of-game">
-        <p>DETAILS OF GAME</p>
-        <p>REQUIREMENTS</p>
-        <p>LANGUAGES</p>
-        <p>LOCALITIES</p>
-        <p>LINKS TO SHARE</p>
-    </div>
-</div>
-
-<div class="reviews">
-    <div class="gamer-opinion">
-        <h3>GAMER'S OPINION</h3>
-        <% if (user) { %>
-            <form action="/games/<%= game._id %>/reviews" method="POST">
-                <label for="review-title">Review Title</label>
-                <input type="text" name="title" id="review-title" required>
-                <label for="review-content">Review Content</label>
-                <textarea name="content" id="review-content" required></textarea>
-                <button type="submit">Submit Review</button>
-            </form>
-        <% } else { %>
-            <p>Please <a href="/login">log in</a> to leave a review.</p>
-        <% } %>
-    </div>
-    <div class="recent-reviews">
-        <h3>RECENT REVIEWS</h3>
-        <% game.reviews.forEach(review => { %>
-            <div class="review">
-                <p><strong><%= review.userName %></strong></p>
-                <p><%= review.content %></p>
-                <p>Rating: <%= review.rating %> stars</p>
+                    <div class="carousel__nav">
+                        <button class="carousel__indicator"></button>
+                        <button class="carousel__indicator"></button>
+                        <button class="carousel__indicator"></button>
+                        <button class="carousel__indicator"></button>
+                    </div>
+                </div>
             </div>
-        <% }) %>
-    </div>
-</div>
+            <div class="horizontal-list">Horizontal List of Preview Items</div>
+            <div class="elaborated-details">Elaborated Details of Game</div>
+            <div class="details">Details of Game</div>
+            <div class="sidebar">Requirements, Languages, Localities, Links to Share</div>
+        </div>
 
-<% if (user) { %>
-    <a href="/games/<%= game._id %>/edit">Edit</a>
-    <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
-    </form>
-<% } %>
-</div>
+        <!-- Review section -->
+        <div class="review-section">
+            <% if (user) { %>
+                <button id="review-game-btn" class="review-game-btn">Review Game</button>
+                <% } %>
+        </div>
+        <div class="reviews">
+            <!-- reviews loop -->
+
+            <div class="recent-reviews">
+                <h3>RECENT REVIEWS</h3>
+                <% game.reviews.forEach(function(review) { %>
+                    <div class="review">
+                        <p><strong>
+                                <%= review.userName %>
+                            </strong></p>
+                        <p>
+                            <%= review.content %>
+                        </p>
+                        <p>Rating: <%= review.rating %> stars</p>
+                    </div>
+                    <% }) %>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Review Modal -->
+
+    <div id="review-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Writing Your Review</h2>
+            <p>Reminder of terms or things that user has to agree to review (rules):</p>
+            <form action="/games/<%= game._id %>/reviews" method="POST">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating:</label>
+                    <select id="rating" name="rating" required>
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="content">Description:</label>
+                    <textarea id="content" name="content" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <% if (user) { %>
+        <a href="/games/<%= game._id %>/edit">Edit</a>
+        <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+        <% } %>
+
+
+            <script src="/javascripts/carousel.js"></script>
+            <script src="/javascripts/show.js"></script>
 
             <%- include("../partials/footer") %>

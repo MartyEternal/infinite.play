@@ -11,6 +11,7 @@ module.exports = {
     edit,
     update,
     delete: deleteGame,
+    searchGames,
 };
 
 async function index(req, res) {
@@ -92,3 +93,13 @@ async function deleteGame(req, res) {
         res.status(500).send("Can't delete game");
     }
 };
+
+async function searchGames(req, res) {
+    try {
+        const query = req.query.q;
+        const games = await Game.find({ title: { $regex: query, $options: 'i' } });
+        res.json(games);
+    } catch (err) {
+        res.status(500).send("Failed to search games");
+    }
+}
