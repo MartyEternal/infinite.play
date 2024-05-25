@@ -4,9 +4,9 @@ const reviewsCtrl = require('../controllers/reviews');
 const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 router.get('/recent', ensureLoggedIn, reviewsCtrl.loadRecentReviews);
-router.put("/reviews/:id", ensureLoggedIn, reviewsCtrl.edit);
+router.put("/games/:id/reviews/:id", ensureLoggedIn, reviewsCtrl.edit);
 // POST /movies/:id/reviews (create review for a movie)
 router.post('/games/:id/reviews', ensureLoggedIn, reviewsCtrl.create);
-router.delete("/reviews/:id", ensureLoggedIn, reviewsCtrl.delete);
+router.delete("/games/:id/reviews/:id", ensureLoggedIn, reviewsCtrl.delete);
 
 module.exports = router;

@@ -8,31 +8,34 @@
             </h1>
             <div class="preview">
                 <div class="carousel">
-                    <button class="carousel__button carousel__button--left is-hidden">⬅️</button>
+
                     <div class="carousel__track-container">
                         <ul class="carousel__track">
-                            <li class="carousel__slide current-slide"><img class="carousel__image"
-                                    src="/images/game-previews/<%= game.title %>/0.jpg" alt=""></li>
-                            <li class="carousel__slide current-slide"><img class="carousel__image"
-                                    src="/images/game-previews/<%= game.title %>/1.jpg" alt=""></li>
-                            <li class="carousel__slide current-slide"><img class="carousel__image"
-                                    src="/images/game-previews/<%= game.title %>/2.jpg" alt=""></li>
-                            <li class="carousel__slide current-slide"><img class="carousel__image"
-                                    src="/images/game-previews/<%= game.title %>/3.jpg" alt=""></li>
+                            <% for (let i=0; i < 4; i++) { %>
+                                <li class="carousel__slide <%= i === 0 ? 'current-slide' : '' %>">
+                                    <img class="carousel__image"
+                                        src="/images/game-previews/<%= game.title %>/<%= i %>.jpg" alt="">
+                                </li>
+                                <% } %>
                         </ul>
                     </div>
-                    <button class="carousel__button carousel__button--right">➡️</button>
+                    <button class="carousel__button carousel__button--left"></button>
+                    <button class="carousel__button carousel__button--right"></button>
 
                     <div class="carousel__nav">
-                        <button class="carousel__indicator"></button>
-                        <button class="carousel__indicator"></button>
-                        <button class="carousel__indicator"></button>
-                        <button class="carousel__indicator"></button>
+                        <% for (let i=0; i < 4; i++) { %>
+                            <button class="carousel__indicator <%= i === 0 ? 'current-slide' : '' %>">
+                                <img class="carousel__nav-image"
+                                    src="/images/game-previews/<%= game.title %>/<%= i %>.jpg" alt="">
+                            </button>
+                            <% } %>
                     </div>
+
                 </div>
             </div>
-            <div class="horizontal-list">Horizontal List of Preview Items</div>
-            <div class="elaborated-details">Elaborated Details of Game</div>
+            <div class="elaborated-details">
+                <%= game.description %>
+            </div>
             <div class="details">Details of Game</div>
             <div class="sidebar">Requirements, Languages, Localities, Links to Share</div>
         </div>
@@ -60,7 +63,14 @@
                     </div>
                     <% }) %>
             </div>
-
+            <div class="review-control">
+                <% if (user) { %>
+                    <a href="/games/<%= game._id %>/reviews/<%= game.reviews._id %>">Edit Review</a>
+                    <form action="/games/<%= game._id %>/reviews/<%= game.reviews._id %>?_method=DELETE" method="POST">
+                        <button type="review-submit">Delete Review</button>
+                    </form>
+                    <% } %>
+            </div>
         </div>
 
     </div>
@@ -92,7 +102,7 @@
                     <textarea id="content" name="content" rows="5" required></textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="submit-btn">Submit</button>
+                    <button type="review-submit" class="submit-btn">Submit</button>
                 </div>
             </form>
         </div>

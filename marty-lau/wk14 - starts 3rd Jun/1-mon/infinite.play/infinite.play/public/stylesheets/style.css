@@ -233,7 +233,7 @@ hr {
   display: flex;
   overflow: hidden;
   position: relative;
-  min-width: 1fr;
+  min-width: 100%;
   max-width: 1380px;
 }
 
@@ -243,9 +243,10 @@ hr {
 
 .carousel {
   position: relative;
-  height: 600px;
-  width: 80%;
+  height: 100%;
+  width: 100%;
   margin: 0 auto;
+  
 }
 
 .carousel__image {
@@ -254,8 +255,13 @@ hr {
   object-fit: cover;
 }
 
+.carousel__nav-image {
+  width: 150px;
+  margin: 0;
+  padding: 0;
+}
+
 .carousel__track-container {
-  background: lightgreen;
   height: 100%;
   position: relative;
   overflow: hidden;
@@ -284,33 +290,54 @@ hr {
   background: transparent;
   border: 0;
   cursor: pointer;
-  height: 400px;
+  height: 100%;
   width: 50px;
 }
 
 .carousel__button--left {
-  left: 0px;
+  opacity: 0;
+  left: 0;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.50)
+}
+
+.carousel__button--left:hover {
+  cursor: pointer;
+  opacity: 80%;
+  transition: opacity 0.3s;
 }
 
 .carousel__button--right {
-  right: 0px;
+  opacity: 0;
+  right: 0;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.50)
+}
+
+.carousel__button--right:hover {
+  cursor: pointer;
+  opacity: 80%;
+  transition: opacity 0.3s;
 }
 
 .carousel__nav {
-  background: rgba(255, 255, 255, 0.7);
+  background-color: pink;
+  position: relative;
   display: flex;
   justify-content: center;
-  padding: 10px 0;
+  padding: 10px 50px;
+  width: 100%;
+  background: transparent;
 }
 
-.carousel__indicator {
+/* .carousel__indicator {
   border: 0;
   border-radius: 50%;
   width: 15px;
   height: 15px;
   background: rgba(0, 0, 0, 0.3);
   margin: 0 12px;
-}
+} */
 
 .carousel__indicator.current-slide {
   background: rgba(0, 0, 0, 0.75);
@@ -323,6 +350,8 @@ hr {
 /* Game Details and Review Section (show.ejs) */
 .game-details {
   margin-top: 20px;
+  min-width: 900px;
+  max-width: 1100px;
 }
 
 .preview {
@@ -365,6 +394,11 @@ hr {
 
 .reviews {
   margin-top: 20px;
+}
+
+.review-submit {
+  background: transparent;
+  font-size: 20px;
 }
 
 /* Review Modal (show.ejs) */

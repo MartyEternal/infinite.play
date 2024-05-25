@@ -39,45 +39,24 @@ Link to the [Wireframe on Excalidraw](https://excalidraw.com/#json=kU8JiCQZEsvGk
 ## Screenshots
 
 ## ERD
-User
------
-UserID (PK)
-Username
-Name
-GoogleID
-Email
-Avatar
-WishlistID (FK)
-Balance
 
-Game
-----
-GameID (PK)
-Title
-Genre
-Developer
-Price
-Description
-CopiesSold
-WishlistUser
-Image
-Reviews (embedded)
+### Entities and Attributes
 
-Wishlist
---------
-WishlistID (PK)
-UserID (FK)
-Games (array of GameID references)
+1. **User to Wishlist**: One-to-One
+   - A User can have one Wishlist.
+   - A Wishlist belongs to one User.
 
-Review (embedded in Game)
-------
-ReviewID (PK)
-Content
-Rating
-UserID (FK)
-Title
-UserName
-UserAvatar
+2. **Wishlist to Game**: Many-to-Many
+   - A Wishlist can contain multiple Games.
+   - A Game can be in multiple Wishlists.
+
+3. **User to Review**: One-to-Many
+   - A User can write multiple Reviews.
+   - A Review is written by one User.
+
+4. **Game to Review**: One-to-Many
+   - A Game can have multiple Reviews.
+   - A Review belongs to one Game.
 
 ## Next Steps
 

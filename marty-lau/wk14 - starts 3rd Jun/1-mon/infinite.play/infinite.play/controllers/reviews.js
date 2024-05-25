@@ -26,9 +26,12 @@ async function create(req, res) {
 
 async function deleteReview(req, res) {
     // code body here
+    console.log(req.params);
+    console.log("deleteReviewId: ", req.params.reviewId)
     try {
         const game = await Game.findById(req.params.id);
-        game.reviews.id(req.params.reviewId).remove();
+        console.log("game", game)
+        await game.reviews.deleteOne({ _id: req.params.review._id });
         await game.save();
         res.redirect(`/games/${game._id}`);
     } catch (err) {
