@@ -620,16 +620,35 @@ hr {
 .upload-game {
   display: flex;
   flex-direction: row;
+  width: 980px;
 }
 
 .upload-form {
-  min-width: 60%;
-  margin: 15px 15px;
+  width: 100%;
+  margin-right: 10px;
 }
 
 .rules {
-  background-color: rgba(255, 255, 255, 0.7);
-  height: 80px;
+  background-color: rgba(95, 95, 99, 0.45);
+  height: 95px;
+  font-size: 14px;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 50;
+  overflow: hidden;
+  transition: height 0.8s ease;
+}
+
+.rules ul {
+  list-style: none;
+  padding-right: 20px;
+}
+
+.rules:hover {
+  height: 350px;
+  overflow: visible;
+  -webkit-line-clamp: 50;
+  transition: height 0.8s  ease;
 }
 
 .upload-form {
@@ -640,7 +659,7 @@ hr {
 
 .upload-form h2 {
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .form-group {
