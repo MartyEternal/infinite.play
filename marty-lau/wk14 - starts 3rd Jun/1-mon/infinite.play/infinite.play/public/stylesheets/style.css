@@ -28,6 +28,11 @@ body {
   align-items: center;
 }
 
+footer {
+  margin: 100px;
+  color: rgba(0, 0, 0, 0)
+}
+
 .flex {
   display: flex;
   flex-direction: row;
@@ -45,6 +50,7 @@ hr {
   margin: 0 27% 0 27%;
 }
 
+/* Header Styles (header.ejs) */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -64,7 +70,6 @@ hr {
   display: block;
 }
 
-/* Header Styles (header.ejs) */
 .global-header {
   height: 75px;
   width: 75%;
@@ -196,6 +201,7 @@ hr {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -229,6 +235,10 @@ hr {
 }
 
 /* Carousel Styles (show.ejs) */
+.container {
+  max-width: 1050px;
+}
+
 .carousel-container {
   display: flex;
   overflow: hidden;
@@ -245,8 +255,9 @@ hr {
   position: relative;
   height: 100%;
   width: 100%;
+  max-width: 1050px;
   margin: 0 auto;
-  
+
 }
 
 .carousel__image {
@@ -273,6 +284,7 @@ hr {
   list-style: none;
   position: relative;
   height: 100%;
+  width: 100%;
   transition: transform 250ms ease-in;
 }
 
@@ -291,13 +303,13 @@ hr {
   border: 0;
   cursor: pointer;
   height: 100%;
-  width: 50px;
+  width: 100px;
 }
 
 .carousel__button--left {
   opacity: 0;
   left: 0;
-  height: 300px;
+  height: 405px;
   background-color: rgba(255, 255, 255, 0.50)
 }
 
@@ -310,7 +322,7 @@ hr {
 .carousel__button--right {
   opacity: 0;
   right: 0;
-  height: 300px;
+  height: 405px;
   background-color: rgba(255, 255, 255, 0.50)
 }
 
@@ -321,26 +333,30 @@ hr {
 }
 
 .carousel__nav {
-  background-color: pink;
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
-  padding: 10px 50px;
   width: 100%;
-  background: transparent;
+  background: rgba(63, 62, 122, 0.4);
+  margin: 0;
+  top: 405px;
+  padding: 0;
 }
 
-/* .carousel__indicator {
-  border: 0;
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
+.carousel__indicator {
+  border: 0 solid #ffffff;
+  width: 100%;
+  height: 99.38px;
   background: rgba(0, 0, 0, 0.3);
-  margin: 0 12px;
-} */
+  margin: 0;
+  padding: 0;
+}
 
 .carousel__indicator.current-slide {
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(139, 139, 139, 0.55);
+  padding: 0;
+  margin: 0;
+  height: 99.38px;
 }
 
 .is-hidden {
@@ -348,52 +364,213 @@ hr {
 }
 
 /* Game Details and Review Section (show.ejs) */
-.game-details {
-  margin-top: 20px;
+.show-page-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 25px 0 25px;
+  height: 40px;
+}
+
+.show-section-1 {
+  margin: 0 50px 10px 20px;
   min-width: 900px;
   max-width: 1100px;
+  display: flex;
+  flex-direction: row;
 }
 
 .preview {
-  height: 300px;
+  height: 405px;
+  width: 720px;
+  max-height: 100%;
+  max-width: 100%;
   background-color: #444;
-  margin-bottom: 20px;
+  margin-right: 10px;
 }
 
-.horizontal-list {
+.mini-details {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  height: 504px;
+  background: rgba(95, 95, 99, 0.45);
+  margin: 0;
+}
+
+.mini-details img {
+  max-width: 280px;
+}
+
+.mini-details-blurb {
+  padding: 0 10px;
+}
+
+.mini-details-blurb p {
+  font-size: 14px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+
+.mini-details-buy button {
+  display: flex;
+  position: absolute;
   height: 100px;
-  background-color: #555;
-  margin-bottom: 20px;
+  width: 280px;
+  bottom: 285px;
+  background: #f4c266;
+  font-size: 50px;
+  align-items: center;
+  justify-content: center;
+  color: #f4c266;
+  background: linear-gradient(90deg, rgb(255, 149, 28), rgb(253, 223, 52), rgb(179, 154, 46));
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: 500ms ease;
 }
 
-.elaborated-details,
+.mini-details-buy button:hover {
+  color: transparent;
+  transition: 500ms ease;
+}
+
+.mini-nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  width: 250px;
+  margin-right: 20px;
+  white-space: nowrap;
+}
+
+.mini-nav-bar ul {
+  text-transform: uppercase;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mini-nav-bar ul li {
+  padding: 0 10px;
+}
+
+.show-section-2 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0 20px;
+  max-width: 980px;
+  font-size: 14px;
+  min-height: 350px;
+}
+
+.elaborated-details {
+  position: relative;
+  margin-right: 10px;
+  padding: 10px;
+  background: rgba(95, 95, 99, 0.45);
+  width: 670px;
+}
+
+.show-sidebar {
+  width: 280px;
+  min-height: 350px;
+  background: rgba(95, 95, 99, 0.45);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .details,
 .sidebar {
-  background-color: #666;
-  margin-bottom: 20px;
-  padding: 20px;
+  position: relative;
+  padding: 10px;
+  width: 260px;
+}
+
+.developer-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.developer-section button {
+  width: 140px;
+  height: 40px;
+  font-size: 20px;
+}
+
+#developer-section-edit {
+  background: rgba(235, 209, 65, 0.45);
+  transition: background-color 0.4s ease;
+}
+
+#developer-section-edit:hover {
+  background: rgba(235, 209, 65, 0.9);
+  transition: background-color 0.4s ease;
+}
+
+#developer-section-delete {
+  background: rgba(231, 62, 32, 0.45);
+  transition: background-color 0.4s ease;
+}
+
+#developer-section-delete:hover {
+  background: rgba(231, 62, 32, 0.9);
+  transition: background-color 0.4s ease;
 }
 
 .review-section {
-  margin-top: 20px;
+  margin: 10px 50px 10px 20px;
+  display: flex;
+  flex-direction: row;
+  width: 980px;
+}
+
+.review-section-header {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-section-left {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  background: rgba(95, 95, 99, 0.45);
+  width: 690px;
 }
 
 .review-game-btn {
-  padding: 10px 20px;
+  padding: 10px 25px;
   font-size: 18px;
   color: #ffffff;
-  background-color: #333;
+  background: rgba(219, 166, 51, 0.45);
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: 500ms ease;
 }
 
 .review-game-btn:hover {
   background-color: #555;
+  transition: background-color 0.3s;
 }
 
-.reviews {
-  margin-top: 20px;
+.review-section-right {
+  display: flex;
+  flex-direction: column;
+  background: rgba(95, 95, 99, 0.45);
+  width: 280px;
 }
 
 .review-submit {

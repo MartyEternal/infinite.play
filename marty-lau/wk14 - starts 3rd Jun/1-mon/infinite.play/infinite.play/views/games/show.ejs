@@ -2,10 +2,21 @@
 
     <div class="container">
         <!-- Game details section here -->
-        <div class="game-details">
-            <h1>
+        <div class="show-page-header">
+            <h1 id="show-game-title">
                 <%= game.title %>
             </h1>
+            <div class="mini-nav-bar">
+                <ul>
+                    <li><a href="/games">ALL GAMES</a></li>
+                    <li><a href="#">ALL <%= game.genre %></a></li>
+                    <li><a href="#">REVIEWS</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="show-section-1">
+
             <div class="preview">
                 <div class="carousel">
 
@@ -33,46 +44,82 @@
 
                 </div>
             </div>
+            <div class="mini-details">
+                <div class="mini-details-header">
+                    <img src="/images/game-previews/<%= game.title %>/header.jpg" alt="">
+                </div>
+                <div class="mini-details-blurb">
+                    <p>
+                        <%= game.description %>
+                    </p>
+                </div>
+                <div class="mini-details-buy">
+                    <a href="#"><button>Buy Game</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="show-section-2">
             <div class="elaborated-details">
                 <%= game.description %>
             </div>
-            <div class="details">Details of Game</div>
-            <div class="sidebar">Requirements, Languages, Localities, Links to Share</div>
+            <div class="show-sidebar">
+                <div class="show-sidebar-top">
+                    <div class="details">Details of Game
+                    </div>
+                    <div class="sidebar">Requirements, Languages, Localities, Links to Share</div>
+                </div>
+                <div class="developer-section">
+                    <% if (user) { %>
+                        <a href="/games/<%= game._id %>/edit"><button id="developer-section-edit">Edit</button></a>
+                        <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+                            <button id="developer-section-delete" type="submit">Delete</button>
+                        </form>
+                        <% } %>
+                </div>
+            </div>
         </div>
-
         <!-- Review section -->
         <div class="review-section">
-            <% if (user) { %>
-                <button id="review-game-btn" class="review-game-btn">Review Game</button>
-                <% } %>
-        </div>
-        <div class="reviews">
-            <!-- reviews loop -->
-
-            <div class="recent-reviews">
-                <h3>RECENT REVIEWS</h3>
-                <% game.reviews.forEach(function(review) { %>
-                    <div class="review">
-                        <p><strong>
-                                <%= review.userName %>
-                            </strong></p>
-                        <p>
-                            <%= review.content %>
-                        </p>
-                        <p>Rating: <%= review.rating %> stars</p>
+            <div class="review-section-left">
+                <div class="review-section-header">
+                    <h2>Gamer's Opinion</h2>
+                    <div class="review-button">
+                        <% if (user) { %>
+                            <button id="review-game-btn" class="review-game-btn">Review Game</button>
+                            <% } %>
                     </div>
-                    <% }) %>
+                </div>
+                <div class="review-section-featured">
+                    <!-- reviews loop -->
+                </div>
             </div>
-            <div class="review-control">
-                <% if (user) { %>
-                    <a href="/games/<%= game._id %>/reviews/<%= game.reviews._id %>">Edit Review</a>
-                    <form action="/games/<%= game._id %>/reviews/<%= game.reviews._id %>?_method=DELETE" method="POST">
-                        <button type="review-submit">Delete Review</button>
-                    </form>
-                    <% } %>
+
+            <div class="review-section-right">
+                <div class="recent-reviews">
+                    <h3>RECENT REVIEWS</h3>
+                    <% game.reviews.forEach(function(review) { %>
+                        <div class="review">
+                            <p><strong>
+                                    <%= review.userName %>
+                                </strong></p>
+                            <p>
+                                <%= review.content %>
+                            </p>
+                            <p>Rating: <%= review.rating %> stars</p>
+                        </div>
+                        <% }) %>
+                </div>
+                <div class="review-control">
+                    <% if (user) { %>
+                        <a href="/games/<%= game._id %>/reviews/<%= game.reviews._id %>">Edit Review</a>
+                        <form action="/games/<%= game._id %>/reviews/<%= game.reviews._id %>?_method=DELETE"
+                            method="POST">
+                            <button type="review-submit">Delete Review</button>
+                        </form>
+                        <% } %>
+                </div>
             </div>
         </div>
-
     </div>
 
     <!-- Review Modal -->
@@ -108,15 +155,10 @@
         </div>
     </div>
 
-    <% if (user) { %>
-        <a href="/games/<%= game._id %>/edit">Edit</a>
-        <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete</button>
-        </form>
-        <% } %>
 
 
-            <script src="/javascripts/carousel.js"></script>
-            <script src="/javascripts/show.js"></script>
 
-            <%- include("../partials/footer") %>
+    <script src="/javascripts/carousel.js"></script>
+    <script src="/javascripts/show.js"></script>
+
+    <%- include("../partials/footer") %>
