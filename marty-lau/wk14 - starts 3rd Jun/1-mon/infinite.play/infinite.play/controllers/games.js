@@ -59,7 +59,6 @@ async function show(req, res) {
 
 async function edit(req, res) {
     try {
-        // console.log(`Editing game with ID: ${req.params.id}`);
         const game = await Game.findById(req.params.id);
         if (!game) {
             return res.status(404).send("Game not found");

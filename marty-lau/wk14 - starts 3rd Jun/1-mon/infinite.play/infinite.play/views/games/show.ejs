@@ -78,7 +78,9 @@
                 </div>
             </div>
         </div>
+
         <!-- Review section -->
+
         <div class="review-section">
             <div class="review-section-left">
                 <div class="review-section-header">
@@ -106,56 +108,91 @@
                                 <%= review.content %>
                             </p>
                             <p>Rating: <%= review.rating %> stars</p>
+
+                            <div class="review-control">
+                                <% if (user) { %>
+                                    <button id="edit-review-btn">Edit Review</button>
+                                    <form action="/games/<%= game._id %>/reviews/<%= review._id %>?_method=DELETE"
+                                        method="POST">
+                                        <button type="review-submit">Delete Review</button>
+                                    </form>
+                                    <% } %>
+                            </div>
                         </div>
                         <% }) %>
                 </div>
-                <div class="review-control">
-                    <% if (user) { %>
-                        <a href="/games/<%= game._id %>/reviews/<%= game.reviews._id %>">Edit Review</a>
-                        <form action="/games/<%= game._id %>/reviews/<%= game.reviews._id %>?_method=DELETE"
-                            method="POST">
-                            <button type="review-submit">Delete Review</button>
-                        </form>
-                        <% } %>
-                </div>
+
             </div>
         </div>
-    </div>
 
-    <!-- Review Modal -->
 
-    <div id="review-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Writing Your Review</h2>
-            <p>Reminder of terms or things that user has to agree to review (rules):</p>
-            <form action="/games/<%= game._id %>/reviews" method="POST">
-                <div class="form-group">
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" required>
-                </div>
-                <div class="form-group">
-                    <label for="rating">Rating:</label>
-                    <select id="rating" name="rating" required>
-                        <option value=1>1</option>
-                        <option value=2>2</option>
-                        <option value=3>3</option>
-                        <option value=4>4</option>
-                        <option value=5>5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="content">Description:</label>
-                    <textarea id="content" name="content" rows="5" required></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="review-submit" class="submit-btn">Submit</button>
-                </div>
-            </form>
+        <!-- New Review Modal -->
+
+        <div id="review-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Writing Your Review</h2>
+                <p>Reminder of terms or things that user has to agree to review (rules):</p>
+                <form action="/games/<%= game._id %>/reviews" method="POST">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating:</label>
+                        <select id="rating" name="rating" required>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Description:</label>
+                        <textarea id="content" name="content" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="review-submit" class="submit-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
+
+        <!-- Edit Review Modal -->
+
+        <div id="review-modal-edit" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Writing Your Review</h2>
+                <p>Reminder of terms or things that user has to agree to review (rules):</p>
+                <form action="/games/<%= game._id %>/reviews/<%= game.reviews._id %>?_method=PUT" method="POST">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating:</label>
+                        <select id="rating" name="rating" required>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Description:</label>
+                        <textarea id="content" name="content" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="review-submit" class="submit-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </div>
-
-
 
 
     <script src="/javascripts/carousel.js"></script>

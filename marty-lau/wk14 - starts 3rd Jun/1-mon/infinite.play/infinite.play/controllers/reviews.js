@@ -8,30 +8,24 @@ module.exports = {
 };
 
 async function create(req, res) {
-    // code body here
     const game = await Game.findById(req.params.id);
-
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
-
     game.reviews.push(req.body);
     try {
         await game.save();
+        res.redirect(`/games/${game._id}`);
     } catch (err) {
         res.status(500).send("Can't create review");
     }
-    res.redirect(`/games/${game._id}`);
 };
 
 async function deleteReview(req, res) {
-    // code body here
-    console.log(req.params);
-    console.log("deleteReviewId: ", req.params.reviewId)
     try {
         const game = await Game.findById(req.params.id);
-        console.log("game", game)
-        await game.reviews.deleteOne({ _id: req.params.review._id });
+        const review = game.reviews.id(req.params.reviewId);
+        review.remove();
         await game.save();
         res.redirect(`/games/${game._id}`);
     } catch (err) {
@@ -40,7 +34,6 @@ async function deleteReview(req, res) {
 };
 
 async function edit(req, res) {
-    // code body here
     try {
         const game = await Game.findById(req.params.id);
         const review = game.reviews.id(req.params.reviewId);
@@ -54,5 +47,5 @@ async function edit(req, res) {
 };
 
 async function loadRecentReviews(req, res) {
-    // code body here
+    // Code to load recent reviews
 }
